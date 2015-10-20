@@ -5,3 +5,7 @@ App Code: bAyhiep8Dkcld5lfkZTfdg
 *Get 100k transactions a month. 1.5m for map, traffic, and traffic tiles.
 Pay a flat rate of $ 0.0007 per transaction above your monthly limit until you upgrade your plan. 
 
+API Reference:
+https://developer.here.com/api-explorer/rest
+https://developer.here.com/documentation
+https://github.com/heremaps/examples
