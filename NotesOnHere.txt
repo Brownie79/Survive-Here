@@ -1,0 +1,7 @@
+AppID: ltDBBsGHTBolY0ZL3swA
+App Code: bAyhiep8Dkcld5lfkZTfdg
+
+*Need to include these in each API call
+*Get 100k transactions a month. 1.5m for map, traffic, and traffic tiles.
+Pay a flat rate of $ 0.0007 per transaction above your monthly limit until you upgrade your plan. 
+
