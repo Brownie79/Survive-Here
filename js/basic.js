@@ -10,10 +10,10 @@ $.ajax({
     app_code: 'bAyhiep8Dkcld5lfkZTfdg'
   },
   success: function (data) {
-    alert("Data Loaded 1");
-    var image = document.createElement("img");
-    image.src = "data:image/png;," + data;    
-    alert("Data Loaded! 2");
+    //alert("Data Loaded 1");
+    //var image = document.createElement("img");
+    //image.src = "data:image/png;," + data;    
+    //alert("Data Loaded! 2");
     //alert(JSON.stringify(data));
   }
 });
