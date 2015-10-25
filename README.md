@@ -38,6 +38,8 @@ Description: varchar(max)
 Rarity: varchar(32): Can only of certain rarities
 Uses: int: Either Null, or has value (consumables)
 	
+Vechicles: You'll need vehicles to move at a decent speed. Time to traverse is real life /10. So a block takes approx 3 seconds to walk. Having a bike / car / etc can speed this up. Holding "Shift" makes you run / bike faster = more stamina gets eaten up. 
+	
 ##Encounters:
 Encounters database contains Encounters, 
 
