@@ -2,14 +2,33 @@
 
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" /> <!--mobile optimization -->
+    <!-- HERE Core -->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"      type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"   type="text/javascript" charset="utf-8"></script>
+  
+    <!-- HERE  Events-->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- Initalize HERE -->
+    <script>
+      // Initialize the platform object:
+      var platform = new H.service.Platform({
+        'app_id': 'ltDBBsGHTBolY0ZL3swA',
+	      'app_code': 'bAyhiep8Dkcld5lfkZTfdg'
+      });
+      // Obtain the default map types from the platform object
+      var maptypes = platform.createDefaultLayers();
+    </script>
+  
   </head>
+  
   <body>
+    
     <div style="width: 1080px; height: 1020px" id="mapContainer"></div>
-    <script src="js/basicmap.js"></script>
+    <script src="js/eventMap.js"></script>
   </body>
+
 </html>
 
 <!--
