@@ -1,12 +1,12 @@
 #Survive-Here
 
-_Abstract_: A 2-D single player mystery/survival game built around the using the HERE Api for level creation. The user is plopped down into Chicago during a zombie outbreak. They have to use their surroundings to survive. The surroundings and map tiles are generated using GPS coords sent to HERE's Map Service and Venue Discovery Service. The end goal is to finish the main quests. 
+_Abstract_: A 2-D single player mystery/survival game built around the using the HERE Api for level creation. The user is plopped down into Chicago during a zombie outbreak. They have to use their surroundings to survive. The surroundings and map tiles are generated using GPS coords sent to HERE's Map Service and Places API. The end goal is to finish the main quests. 
 ** *Note not all of the following will be implemented, but just lays out an eventual plan**
 
 ##Table of Contents:
 1. [GUI](#gui)
-2. [Login Form](#login)
-2. [Player](#player)
+1. [Login Form](#login)
+1. [Player](#player)
 	- Coordinates
 	- Events Occured
 	- Profession
@@ -15,9 +15,10 @@ _Abstract_: A 2-D single player mystery/survival game built around the using the
 	- Items
 	- Vehicles
 	- Stashes (Stretch)
-3. [Places](#places)
-4. [Events](#events)
-5. [Quests](#quests)
+1. [Map](#map)
+1. [Places](#places)
+1. [Events](#events)
+1. [Quests](#quests)
 
 ##<a name="gui"></a>GUI:
 An example of the gui can be found in the images folder.
@@ -90,7 +91,23 @@ You'll need vehicles to move at a decent speed. Time to traverse is real life /1
 ###_Stashes(Strech)_:
 A possible stashing skill would allow storing "stashes" info, which will be a coordinate with an array of items stored in it. Allows you to store more items in it with possible events such as "your stash has been looted", "the food went rotten", etc. Stashes can be considered a type of _place_. 
 
+##<a name="map"></a>Map
+A thread in the background watches for key strokes and moves the map, instead of the player. Have a check to make sure the player stays on roads so they aren't walking through walls.
+
+"Look Around" button/key shoots out a circle with radius x, tinted blue(?) which sticks around for t seconds. Have a second daemon check for decay of those circles(?). While in an 'active' circle, the player can't use the 'look around' feature -to limit server lag and requests. 
+
+In an active circle, the nearby venues are located and markers placed at those locations (Use Places API for this). If possible, store map with this data on player profile to save on requests?
+
+If within x distance of given 'place', change player sprite to indicate that an event can be triggered. -> If 'go in' key is pressed, roll for event based on place stuff (see below). 
+
 ##<a name="places"></a>Places
+All places returned from the places + everything else is considered a 'place'. A place is a possible trigger for an event and has certain attributes: 
+- _position_: position describes the geolocation of this particular place 
+- _distance_: describes the distance from the original query location and this particular place 
+- _title_: gives the name of the place 
+- [_category_](#https://developer.here.com/rest-apis/documentation/places/topics/categories.html): explains the relevant category group for that place which helps describe it. All places have a category, for example eat-drink, going-out,sights-museums, and more
+- _icon_: provides a URI for the relevant icon for this place category.
+- _id_: is the specific id number for this place 
 
 ##<a name="events"></a>Events:
 Encounters database contains Encounters, 
