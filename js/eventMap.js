@@ -1,15 +1,11 @@
 //Initalize the map
-var eventsMap = new H.Map(
-	document.getElementById("mapContainer"),	
-	maptypes.normal.map,
-	{	zoom:19, center: { lng: -87.6252530, lat: 41.8261990 }	}
-);
+//basic map does that to var map
 
 //Enable the event system on the map instance
-var mapEvents = new H.mapevents.MapEvents(eventsMap);
+var mapEvents = new H.mapevents.MapEvents(map);
 
 //Add event listener
-eventsMap.addEventListener(
+map.addEventListener(
 	'tap', function(evt) 
 	{
 		console.log(evt.type, evt.currentPointer.type); // Log 'tap' and 'mouse' events:

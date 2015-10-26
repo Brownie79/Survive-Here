@@ -3,11 +3,57 @@
 _Abstract_: A 2-D single player mystery/survival game built around the using the HERE Api for level creation. The user is plopped down into Chicago during a zombie outbreak. They have to use their surroundings to survive. The surroundings and map tiles are generated using GPS coords sent to HERE's Map Service and Venue Discovery Service. The end goal is to finish the main quests. 
 ** *Note not all of the following will be implemented, but just lays out an eventual plan**
 
-##Player:
+##Table of Contents:
+1. [GUI](#gui)
+2. [Login Form](#login)
+2. [Player](#player)
+	- Coordinates
+	- Events Occured
+	- Profession
+	- Skills
+	- Actions
+	- Items
+	- Vehicles
+	- Stashes (Stretch)
+3. [Places](#places)
+4. [Events](#events)
+5. [Quests](#quests)
+
+##<a name="gui"></a>GUI:
+An example of the gui can be found in the images folder.
+![alt-text](img/guiExample.png)
+
+It is split into three horizontal sections. 
+- Top: Title bar with possibly quick stats like current username
+- Center: main screen; split into two, wider(left) being the map, the smaller(right) being a changeable menu screen for skills/inventory/etc
+- Bottom: possibly console which states things that we could use alerts for but this allows us to show history + color code the text (use runescape as an example?)
+
+##<a name="login"></a>Login Form/Alert:
+When website loads up, users are prompted for a username to login with. We have 5 character databases ready, one for each of the developers, one dummy, and one 'guest'.
+
+Guest database wipes itself everytime it's loaded up. 
+For everyone else, doing things(upgrading skills, getting items, etc) updates on the sql database in realtime. 
+
+##<a name="player"></a>Player:
+###_Coordinates_:
+A seperate thread runs in the background that updates the players coordinates after each action or time based event. 
+
+If time based: Update coordinates after x seconds
+If event based: Entering/Exiting Vehicle stores coordinates, Triggering an event stores coordinates, using an item stores coordinates, etc.
+
+Coordinates are used during load time to determine where the map center is. 
+
+###_Events Occured_:
+A table which keeps track of all the events that have occured, how many times, outcome, and last time they occured. 
+- Unique:	[Evt ID(int),Outcome(int),LastTimeExec(datetime)]
+- Generic:  [Evt ID(int), TimesEncountered(int), LastTimeExec(datetime)]
+
+After the player goes through an event, the event type is either generic or unique. Table corresponding to that type is updated with the info. Unique events log everytime that event occurs (as uniques have different outcomes), whereas generics just keep update times occurred, as the outcome will be the same each time. 
+
 ###_Profession_: 
 At the beginning of the game the player chooses a profession which starts them off with points in certain skills, actions, and items. 
 - Nurse
-- Computer Engineer
+- Programmer
 - Mechanic
 - Police Officer
 - Crook
@@ -26,21 +72,27 @@ Skills are point based attributes a player has that act as threshold for being a
 In any given place and during any given time, you have certain number of actions available to you. These are contirbuted from your skills, profession, reading books, having items, etc. 
 - If you have a firearm in your inventory, you may "shoot"
 - If you read a science book, you may investigate a lab
-- They can look at their phone for GPS / Journal entering (default thing everyone has)
+- They can look at their phone for GPS / Journal entering (default thing everyone has) 
 
 ###_Items_:
-Items can be stored in the players inventory(limited) or at their Home(large limited). Possible "Stashing" skill could allow building small stashes in the world. 
+Items can be stored in the players inventory(currently unlimited, future limited?). Possible "Stashing" skill could allow building small stashes in the world. 
 
 Items are contained in the Item Database, which is an MySQL/XML doc containing large tabnle with the follwing Schema:
-Name: varchar(32): UNIQUE
-Type: varchar(32): Can be only of certain types (e.g. 'Weapon', 'Tool', 'Consumable')
-Description: varchar(max)
-Rarity: varchar(32): Can only of certain rarities
-Uses: int: Either Null, or has value (consumables)
+- Name: varchar(32): UNIQUE
+- Type: varchar(32): Can be only of certain types (e.g. 'Weapon', 'Tool', 'Consumable')
+- Description: varchar(max)
+- Rarity: varchar(32): Can only of certain rarities
+- Uses: int: Either Null, or has value (consumables)
 	
-Vechicles: You'll need vehicles to move at a decent speed. Time to traverse is real life /10. So a block takes approx 3 seconds to walk. Having a bike / car / etc can speed this up. Holding "Shift" makes you run / bike faster = more stamina gets eaten up. 
-	
-##Encounters:
+###_Vehicles_:
+You'll need vehicles to move at a decent speed. Time to traverse is real life /10. So a block takes approx 3 seconds to walk. Having a bike / car / etc can speed this up. Holding "Shift" makes you run / bike faster = more stamina gets eaten up. 
+
+###_Stashes(Strech)_:
+A possible stashing skill would allow storing "stashes" info, which will be a coordinate with an array of items stored in it. Allows you to store more items in it with possible events such as "your stash has been looted", "the food went rotten", etc. Stashes can be considered a type of _place_. 
+
+##<a name="places"></a>Places
+
+##<a name="events"></a>Events:
 Encounters database contains Encounters, 
 
-##Quests:
+##<a name="quests"></a>Quests:
