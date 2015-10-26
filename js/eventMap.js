@@ -1,7 +1,7 @@
 //Initalize the map
 var eventsMap = new H.Map(
 	document.getElementById("mapContainer"),	
-	maptypes.satellite.map,
+	maptypes.normal.map,
 	{	zoom:19, center: { lng: -87.6252530, lat: 41.8261990 }	}
 );
 
