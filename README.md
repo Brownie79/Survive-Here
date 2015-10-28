@@ -110,6 +110,12 @@ All places returned from the places + everything else is considered a 'place'. A
 - _id_: is the specific id number for this place 
 
 ##<a name="events"></a>Events:
-Encounters database contains Encounters, 
+Events database contains all events with their respective triggers and outcomes. 
+
+Table: 
+- ID (also used to label the js file for the event)
+- Event Name
+- Array of Event triggers
 
 ##<a name="quests"></a>Quests:
+Quests are chains of encounters. Checks can be made to see which quests have been completed and which ones are available. Think watch dogs for linear vs sandbox type of gameplay.
