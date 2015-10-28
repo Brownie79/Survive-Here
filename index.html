@@ -24,8 +24,24 @@
   </head>
   
   <body>
+    <div style="width:90%"> <!-- controlls the width size of the whole thing? -->
     
-    <div style="width: 1080px; height: 1020px" id="mapContainer"></div>
+      <div style="height:250px" id="titlebar">
+        <div style="width:75%" id="gametitle">Survive-Here</div>
+        <div style="width:25%" id="curruser"></div>
+      </div>
+      
+      <div id="gamescreen">
+        <div style="width:80%;background-color:purple;color:white;padding:5px" id="mapContainer"></div>
+        <div id="menus"></div>
+      </div>
+      
+      <div style="height:500px" id="console">
+        <!-- text box -->
+      </div>
+      
+    </div>
+     
     <script src="js/basicmap.js"></script> <!-- defines the map with center -->
     <script src="js/eventMap.js"></script> <!-- allows the map to be able to zoom in/out and drag around-->
   </body>
