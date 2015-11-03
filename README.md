@@ -4,6 +4,7 @@ _Abstract_: A 2-D single player mystery/survival game built around the using the
 ** *Note not all of the following will be implemented, but just lays out an eventual plan**
 
 ##Table of Contents:
+1. [Story](#story)
 1. [GUI](#gui)
 1. [Login Form](#login)
 1. [Player](#player)
@@ -19,6 +20,11 @@ _Abstract_: A 2-D single player mystery/survival game built around the using the
 1. [Places](#places)
 1. [Events](#events)
 1. [Quests](#quests)
+
+##<a name="story"></a>Story
+1. Viral Oubreak that kills 98% of the world population. Our survivor wakes up not remembering anything but his name in a bed. On a table is a note "I did what I could, I wish I could stay to see if you get better, but there but I have to get the samples back to the lab. Meet me there after after wake up. - JD"
+
+The survivor 
 
 ##<a name="gui"></a>GUI:
 An example of the gui can be found in the images folder.

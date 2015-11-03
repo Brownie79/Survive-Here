@@ -14,3 +14,5 @@ map.addEventListener(
 
 // Instantiate the default behavior, providing the mapEvents object: 
 var behavior = new H.mapevents.Behavior(mapEvents); //alows for zoom in and out as well as drag around
+
+console.log("eventMap.js exectuted successfully");
