@@ -7,9 +7,7 @@ var map = new H.Map(
 );
 console.log("basicmap.js exectuted successfully");
 
-jQuery(function(){
-	console.log(map.getCenter());	
-});
+
 
 //https://developer.here.com/javascript-apis/documentation/v3/maps/topics/map-types.html
 //maptypes contains: normal, satellite, and terrain views, each of which have many subtypes
