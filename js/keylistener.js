@@ -1,6 +1,6 @@
-var stepsize = 0.0000001; // determines speed of marker movement
-
-window.onkeydown = function(e){
+jQuery(function(){
+	var stepsize = 0.0000001; // determines speed of marker movement
+	window.onkeydown = function(e){
 	//the following is a compact if statement structure
 	/*	if(e.keyCode) { key = e.keyCode; }
 		else { key = e.which; } */
@@ -10,22 +10,27 @@ window.onkeydown = function(e){
 		case 87:
 		case 38:
 			//up key
+			console.log("Up Key");
 			break;
 		case 83:
 		case 40:
 			//down key
+			console.log("Down Key");
 			break;
 		case 65:
 		case 37:
 			//left key
+			console.log("Left Key");
 			break;
 		case 68:
 		case 39:
 			//right key
+			console.log("Right Key");
 			break;
 		default:
 			//do nothing
 	}
-};
+	};
+	console.log("keylistener.js exectuted successfully");
+});
 
-console.log("keylistener.js exectuted successfully");
