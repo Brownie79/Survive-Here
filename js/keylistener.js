@@ -42,6 +42,8 @@ jQuery(function(){
 			map.setCenter({lng: map.getCenter().lng+(stepsize*vechMultiplier) , lat:map.getCenter().lat});
 			marker.setPosition(map.getCenter());
 			break;
+		case 32: //spacebar
+			// send out "pulse"
 		default:
 			//do nothing
 	} //switch
