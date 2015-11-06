@@ -3,8 +3,9 @@ var map = new H.Map(
 	document.getElementById('mapContainer'),
 	maptypes.satellite.map,
 	{	zoom: 19, //about 2 blocks, takes ~30s actual walking time from end to end?
-		center: { lng: -87.6252530, lat: 41.8261990 } }
+		center: { lng: -87.6252530, lat: 41.8261990 } } 
 );
+//lng: -87.6252530, lat: 41.8261990 correspond to 3742 S Wabash
 console.log("basicmap.js exectuted successfully");
 
 

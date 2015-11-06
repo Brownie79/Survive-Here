@@ -42,9 +42,9 @@ jQuery(function(){
 			map.setCenter({lng: map.getCenter().lng+(stepsize*vechMultiplier) , lat:map.getCenter().lat});
 			marker.setPosition(map.getCenter());
 			break;
-		case 32: //spacebar
+		case 80: // p
 			// send out "pulse"
-			fetchPlaces(processRequest);
+			placesSearch();
 		default:
 			//do nothing
 	} //switch
