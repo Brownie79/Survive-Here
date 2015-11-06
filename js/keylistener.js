@@ -44,6 +44,7 @@ jQuery(function(){
 			break;
 		case 32: //spacebar
 			// send out "pulse"
+			fetchPlaces(processRequest);
 		default:
 			//do nothing
 	} //switch

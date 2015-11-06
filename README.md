@@ -1,6 +1,6 @@
 #Survive-Here
 
-_Abstract_: A 2-D single player mystery/survival game built around the using the HERE Api for level creation. The user is plopped down into Chicago during a zombie outbreak. They have to use their surroundings to survive. The surroundings and map tiles are generated using GPS coords sent to HERE's Map Service and Places API. The end goal is to finish the main quests. 
+_Abstract_: A 2-D single player mystery/survival game built around the using the HERE Api for level creation. The user is plopped down into Chicago during a viral outbreak. They have to use their surroundings to survive. The surroundings and map tiles are generated using GPS coords sent to HERE's Map Service and Places API. The end goal is to finish the main quests. 
 ** *Note not all of the following will be implemented, but just lays out an eventual plan**
 
 ##Table of Contents:
